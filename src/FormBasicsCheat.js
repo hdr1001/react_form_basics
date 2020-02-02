@@ -11,6 +11,7 @@ class FormBasicsCheat extends React.Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleReset = this.handleReset.bind(this);
   }
 
   handleChange(event) {
@@ -26,6 +27,11 @@ class FormBasicsCheat extends React.Component {
     event.preventDefault();
   }
 
+  handleReset(event) {
+    this.setState(Object.assign({}, this.props.iniState));
+    event.preventDefault();
+  }
+
   render() {
     return (
       <div id="center_col">
@@ -33,6 +39,7 @@ class FormBasicsCheat extends React.Component {
           <form
             encType="application/x-www-form-urlencoded"
             onSubmit={this.handleSubmit}
+            onReset={this.handleReset}
           >
             <fieldset>
               <legend>Form lift state example</legend>
@@ -75,6 +82,7 @@ class FormBasicsCheat extends React.Component {
               <div className="ElementGrp">
                 <label>&nbsp;</label>
                 <input type="submit" value="Submit" />
+                <input type="reset" value="Reset" />
               </div>
             </fieldset>
           </form>
