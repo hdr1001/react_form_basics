@@ -16,12 +16,15 @@ class TextInput extends React.Component {
   render() {
     return (
       <div>
-        <label htmlFor={this.props.name}>Name</label>
+        <label htmlFor={this.props.name}>{this.props.label}</label>
         <input
-          type="text"
+          {...(this.props.password ? { type: "password" } : { type: "text" })}
           name={this.props.name}
           value={this.props.value}
-          onChange={this.handleChange}
+          {...(this.props.readOnly
+            ? { readOnly: true }
+            : { onChange: this.handleChange })}
+          {...(this.props.maxLength ? { maxLength: this.props.maxLength } : {})}
         />
       </div>
     );

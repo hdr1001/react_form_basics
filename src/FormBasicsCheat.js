@@ -39,9 +39,36 @@ class FormBasicsCheat extends React.Component {
 
               <div className="ElementGrp">
                 <TextInput
+                  label="Name"
                   name="txtName"
                   value={this.state.txtName}
                   onChange={this.handleChange}
+                />
+                <TextInput
+                  label="Alias"
+                  name="txtAlias"
+                  value={this.state.txtAlias}
+                  readOnly={true}
+                />
+                <TextInput
+                  label="Address"
+                  name="txtAdr"
+                  value={this.state.txtAdr}
+                  onChange={this.handleChange}
+                  maxLength={64}
+                />
+                <TextInput
+                  label="City"
+                  name="txtCity"
+                  value={this.state.txtCity}
+                  onChange={this.handleChange}
+                />
+                <TextInput
+                  label="Secret code"
+                  name="pwdCode"
+                  value={this.state.pwdCode}
+                  onChange={this.handleChange}
+                  password={true}
                 />
               </div>
 
