@@ -1,6 +1,6 @@
 {
-  "name": "react-form-basics",
-  "description": "React form basics project",
+  "name": "react-form-basics-lifted-state",
+  "description": "React form basics project with lifted state",
   "author": "Hans de Rooij",
   "version": "1.0.0",
   "license": "Apache-2.0",

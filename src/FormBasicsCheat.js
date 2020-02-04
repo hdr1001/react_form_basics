@@ -2,6 +2,7 @@
 
 import React from "react";
 import { TextInput } from "./TxtInput";
+import { RadioInput } from "./RadioInput";
 
 class FormBasicsCheat extends React.Component {
   constructor(props) {
@@ -33,6 +34,24 @@ class FormBasicsCheat extends React.Component {
   }
 
   render() {
+    const radioBtns = {
+      radioGrpLabel: "Gender",
+      arrBtns: [
+        {
+          name: "optGender",
+          id: "optMale",
+          label: "Male",
+          value: "M"
+        },
+        {
+          name: "optGender",
+          id: "optFemale",
+          label: "Female",
+          value: "F"
+        }
+      ]
+    };
+
     return (
       <div id="center_col">
         <div id="content">
@@ -76,6 +95,14 @@ class FormBasicsCheat extends React.Component {
                   value={this.state.pwdCode}
                   onChange={this.handleChange}
                   password={true}
+                />
+              </div>
+
+              <div className="ElementGrp">
+                <RadioInput
+                  btnInfo={radioBtns}
+                  value={this.state.optGender}
+                  onChange={this.handleChange}
                 />
               </div>
 

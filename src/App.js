@@ -6,7 +6,8 @@ const iniStateForm = {
   txtAlias: "007",
   txtAdr: "",
   txtCity: "",
-  pwdCode: ""
+  pwdCode: "",
+  optGender: "M"
 };
 
 export default function App() {
