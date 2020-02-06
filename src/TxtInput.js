@@ -15,7 +15,7 @@ class TextInput extends React.Component {
 
   render() {
     return (
-      <div>
+      <React.Fragment>
         <label htmlFor={this.props.name}>{this.props.label}</label>
         <input
           {...(this.props.password ? { type: "password" } : { type: "text" })}
@@ -26,7 +26,7 @@ class TextInput extends React.Component {
             : { onChange: this.handleChange })}
           {...(this.props.maxLength ? { maxLength: this.props.maxLength } : {})}
         />
-      </div>
+      </React.Fragment>
     );
   }
 }

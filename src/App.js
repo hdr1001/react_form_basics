@@ -7,7 +7,10 @@ const iniStateForm = {
   txtAdr: "",
   txtCity: "",
   pwdCode: "",
-  optGender: "M"
+  optGender: "M",
+  chkWater: false,
+  chkIce: false,
+  chkStir: true
 };
 
 export default function App() {

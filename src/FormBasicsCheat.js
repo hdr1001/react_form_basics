@@ -3,6 +3,7 @@
 import React from "react";
 import { TextInput } from "./TxtInput";
 import { RadioInput } from "./RadioInput";
+import { CheckInput } from "./CheckInput";
 
 class FormBasicsCheat extends React.Component {
   constructor(props) {
@@ -18,9 +19,15 @@ class FormBasicsCheat extends React.Component {
   handleChange(event) {
     const name = event.target.name;
 
-    this.setState({
-      [name]: event.target.value
-    });
+    if (event.target.type === "checkbox") {
+      this.setState({
+        [name]: event.target.checked
+      });
+    } else {
+      this.setState({
+        [name]: event.target.value
+      });
+    }
   }
 
   handleSubmit(event) {
@@ -48,6 +55,27 @@ class FormBasicsCheat extends React.Component {
           id: "optFemale",
           label: "Female",
           value: "F"
+        }
+      ]
+    };
+
+    const checkBoxes = {
+      chkBoxesLabel: "Options",
+      arrChks: [
+        {
+          name: "chkWater",
+          label: "Water",
+          value: this.state.chkWater
+        },
+        {
+          name: "chkIce",
+          label: "Ice",
+          value: this.state.chkIce
+        },
+        {
+          name: "chkStir",
+          label: "Stir",
+          value: this.state.chkStir
         }
       ]
     };
@@ -104,6 +132,10 @@ class FormBasicsCheat extends React.Component {
                   value={this.state.optGender}
                   onChange={this.handleChange}
                 />
+              </div>
+
+              <div className="ElementGrp">
+                <CheckInput chkInfo={checkBoxes} onChange={this.handleChange} />
               </div>
 
               <div className="ElementGrp">
