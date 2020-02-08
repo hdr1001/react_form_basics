@@ -10,7 +10,9 @@ const iniStateForm = {
   optGender: "M",
   chkWater: false,
   chkIce: false,
-  chkStir: true
+  chkStir: true,
+  ddmMenuChoice: "c",
+  hdnInp: "🤯" //No longer associated with a control
 };
 
 export default function App() {

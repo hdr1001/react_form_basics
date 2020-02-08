@@ -4,6 +4,7 @@ import React from "react";
 import { TextInput } from "./TxtInput";
 import { RadioInput } from "./RadioInput";
 import { CheckInput } from "./CheckInput";
+import { DropDownInput } from "./DropDownInput.js";
 
 class FormBasicsCheat extends React.Component {
   constructor(props) {
@@ -80,6 +81,17 @@ class FormBasicsCheat extends React.Component {
       ]
     };
 
+    const dropDownOpts = {
+      ddLabel: "Menu choice",
+      name: "ddmMenuChoice",
+      arrOpts: [
+        { text: "A la cart", value: "a" },
+        { text: "Special", value: "s" },
+        { text: "Catch of the day", value: "c" },
+        { text: "Vegetarian", value: "v" }
+      ]
+    };
+
     return (
       <div id="center_col">
         <div id="content">
@@ -136,6 +148,14 @@ class FormBasicsCheat extends React.Component {
 
               <div className="ElementGrp">
                 <CheckInput chkInfo={checkBoxes} onChange={this.handleChange} />
+              </div>
+
+              <div className="ElementGrp">
+                <DropDownInput
+                  ddInfo={dropDownOpts}
+                  value={this.state.ddmMenuChoice}
+                  onChange={this.handleChange}
+                />
               </div>
 
               <div className="ElementGrp">
