@@ -20,13 +20,15 @@ class FormBasicsCheat extends React.Component {
   handleChange(event) {
     const name = event.target.name;
 
+    event.persist(); //http://bit.ly/2StVoUa
+
     if (event.target.type === "checkbox") {
-      this.setState({
-        [name]: event.target.checked
+      this.setState((prevState, props) => {
+        return { [name]: event.target.checked };
       });
     } else {
-      this.setState({
-        [name]: event.target.value
+      this.setState((prevState, props) => {
+        return { [name]: event.target.value };
       });
     }
   }

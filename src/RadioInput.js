@@ -1,45 +1,33 @@
-//React radio buttons input component
+//React radio buttons functional component
 
 import React from "react";
 
-class RadioInput extends React.Component {
-  constructor(props) {
-    super(props);
+function RadioInput(props) {
+  const radioGrpLabel = props.btnInfo.radioGrpLabel;
+  const radioButtons = props.btnInfo.arrBtns;
 
-    this.handleChange = this.handleChange.bind(this);
-  }
-
-  handleChange(event) {
-    this.props.onChange(event);
-  }
-
-  render() {
-    const radioGrpLabel = this.props.btnInfo.radioGrpLabel;
-    const radioButtons = this.props.btnInfo.arrBtns;
-
-    return (
-      <React.Fragment>
-        {radioButtons.map((btn, idx) => {
-          return (
-            <React.Fragment key={btn.id}>
-              <label htmlFor={btn.id}>{idx ? "" : radioGrpLabel}</label>
-              <input
-                type="radio"
-                name={btn.name}
-                id={btn.id}
-                value={btn.value}
-                onChange={this.handleChange}
-                checked={this.props.value === btn.value}
-              />
-              <label htmlFor={btn.id} className="rhs">
-                {btn.label}
-              </label>
-            </React.Fragment>
-          );
-        })}
-      </React.Fragment>
-    );
-  }
+  return (
+    <React.Fragment>
+      {radioButtons.map((btn, idx) => {
+        return (
+          <React.Fragment key={btn.id}>
+            <label htmlFor={btn.id}>{idx ? "" : radioGrpLabel}</label>
+            <input
+              type="radio"
+              name={btn.name}
+              id={btn.id}
+              value={btn.value}
+              onChange={props.onChange}
+              checked={props.value === btn.value}
+            />
+            <label htmlFor={btn.id} className="rhs">
+              {btn.label}
+            </label>
+          </React.Fragment>
+        );
+      })}
+    </React.Fragment>
+  );
 }
 
 export { RadioInput };
